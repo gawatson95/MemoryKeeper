@@ -10,24 +10,17 @@ import UIKit
 class DetailVC: UIViewController {
 
     @IBOutlet var imageView: UIImageView!
-    var selectedMemory: Memory?
-    
+    var image: UIImage?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: #selector(deleteMemory))
         
-        if let imageToLoad = selectedMemory?.image {
-            imageView.image = UIImage(named: imageToLoad)
-            print("Image loaded")
-            print(imageToLoad)
-        }
+        imageView.image = image
     }
     
     @objc func deleteMemory() {
-//        let index = memories.firstIndex(of: selectedMemory)
-//        memories.remove(at: index)
+        
     }
-
 }

@@ -10,7 +10,7 @@
         <!--View Controller-->
         <scene sceneID="mCs-Ss-yLC">
             <objects>
-                <collectionViewController id="s38-Hl-c2G" customClass="ViewController" customModule="MemoryKeeper" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController storyboardIdentifier="ViewController" id="s38-Hl-c2G" customClass="ViewController" customModule="MemoryKeeper" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="j5e-h7-DCi">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -64,7 +64,7 @@
         <!--DetailVC-->
         <scene sceneID="nBh-ZJ-Pft">
             <objects>
-                <viewController storyboardIdentifier="Detail" id="0Uf-Be-EAM" customClass="DetailVC" customModule="MemoryKeeper" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DetailVC" id="0Uf-Be-EAM" customClass="DetailVC" customModule="MemoryKeeper" customModuleProvider="target" sceneMemberID="viewController">
                     <imageView key="view" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="57I-Yb-ypf">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>

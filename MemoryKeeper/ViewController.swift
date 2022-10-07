@@ -15,6 +15,7 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
         super.viewDidLoad()
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addMemory))
+        
         let defaults = UserDefaults.standard
         if let savedMemories = defaults.object(forKey: "memories") as? Data {
             let decoder = JSONDecoder()
@@ -24,8 +25,6 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
                 print("Failed to load memories")
             }
         }
-        
-        print(memories[0])
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -43,7 +42,7 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
         
         let path = getDocumentsDirectory().appendingPathComponent(memory.image)
         cell.imageView.image = UIImage(contentsOfFile: path.path())
-        
+
         cell.imageView.layer.borderColor = UIColor(white: 0, alpha: 0.3).cgColor
         cell.imageView.layer.borderWidth = 2
         cell.imageView.layer.cornerRadius = 3
@@ -54,7 +53,8 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let vc = storyboard?.instantiateViewController(withIdentifier: "DetailVC") as? DetailVC {
-            vc.selectedMemory = memories[indexPath.row]
+            let memory = memories[indexPath.row]
+            vc.image = UIImage(contentsOfFile: getDocumentsDirectory().appendingPathComponent(memory.image).path())
             navigationController?.pushViewController(vc, animated: true)
         }
     }
@@ -63,7 +63,6 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         return paths[0]
     }
-    
     
     @objc func addMemory() {
         let picker = UIImagePickerController()
@@ -85,7 +84,7 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
             try? jpegData.write(to: imagePath)
         }
         
-        let memory = Memory(image: imageName, caption: "Caption")
+        var memory = Memory(image: imageName, caption: "Caption")
     
         dismiss(animated: true)
         
@@ -99,7 +98,6 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
         present(ac, animated: true)
         memories.append(memory)
         save()
-        collectionView.reloadData()
     }
     
     func save() {
@@ -111,6 +109,8 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
         } else {
             print("Failed to save memories")
         }
+        
+        collectionView.reloadData()
     }
 }
 
