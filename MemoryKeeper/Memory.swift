@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Memory: NSObject {
+class Memory: NSObject, Codable {
     var image: String
     var caption: String
     

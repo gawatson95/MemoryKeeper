@@ -61,6 +61,22 @@
             </objects>
             <point key="canvasLocation" x="1745.8015267175572" y="-127.46478873239437"/>
         </scene>
+        <!--DetailVC-->
+        <scene sceneID="nBh-ZJ-Pft">
+            <objects>
+                <viewController storyboardIdentifier="Detail" id="0Uf-Be-EAM" customClass="DetailVC" customModule="MemoryKeeper" customModuleProvider="target" sceneMemberID="viewController">
+                    <imageView key="view" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="57I-Yb-ypf">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    </imageView>
+                    <connections>
+                        <outlet property="imageView" destination="57I-Yb-ypf" id="Zik-Pg-KfD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DCH-8w-UKM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2512" y="-127"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="WND-H8-QeG">
             <objects>

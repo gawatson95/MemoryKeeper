@@ -15,6 +15,17 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
         super.viewDidLoad()
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addMemory))
+        let defaults = UserDefaults.standard
+        if let savedMemories = defaults.object(forKey: "memories") as? Data {
+            let decoder = JSONDecoder()
+            do {
+                memories = try decoder.decode([Memory].self, from: savedMemories)
+            } catch {
+                print("Failed to load memories")
+            }
+        }
+        
+        print(memories[0])
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -42,7 +53,10 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+        if let vc = storyboard?.instantiateViewController(withIdentifier: "DetailVC") as? DetailVC {
+            vc.selectedMemory = memories[indexPath.row]
+            navigationController?.pushViewController(vc, animated: true)
+        }
     }
     
     func getDocumentsDirectory() -> URL {
@@ -72,9 +86,31 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
         }
         
         let memory = Memory(image: imageName, caption: "Caption")
-        memories.append(memory)
-        collectionView.reloadData()
+    
         dismiss(animated: true)
+        
+        let ac = UIAlertController(title: "Add caption", message: "Add a caption to your image to make it even more memorable.", preferredStyle: .alert)
+        ac.addTextField()
+        ac.addAction(UIAlertAction(title: "Add", style: .default) { [weak ac] _ in
+            guard let caption = ac?.textFields?[0].text else { return }
+            memory.caption = caption
+        })
+        
+        present(ac, animated: true)
+        memories.append(memory)
+        save()
+        collectionView.reloadData()
+    }
+    
+    func save() {
+        let encoder = JSONEncoder()
+        
+        if let savedData = try? encoder.encode(memories) {
+            let defaults = UserDefaults.standard
+            defaults.set(savedData, forKey: "memories")
+        } else {
+            print("Failed to save memories")
+        }
     }
 }
 

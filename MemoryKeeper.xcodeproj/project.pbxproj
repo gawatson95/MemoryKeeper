@@ -15,6 +15,7 @@
 		C01D78CC28EE1BA3005009CA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C01D78CA28EE1BA3005009CA /* LaunchScreen.storyboard */; };
 		C01D78D628EE1E80005009CA /* MemoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01D78D528EE1E80005009CA /* MemoryCell.swift */; };
 		C01D78D828EE206F005009CA /* Memory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01D78D728EE206F005009CA /* Memory.swift */; };
+		C06CFF9428EF35AD006EAD1A /* DetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06CFF9328EF35AD006EAD1A /* DetailVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		C01D78CD28EE1BA3005009CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C01D78D528EE1E80005009CA /* MemoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryCell.swift; sourceTree = "<group>"; };
 		C01D78D728EE206F005009CA /* Memory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Memory.swift; sourceTree = "<group>"; };
+		C06CFF9328EF35AD006EAD1A /* DetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				C01D78BF28EE1BA2005009CA /* AppDelegate.swift */,
 				C01D78C128EE1BA2005009CA /* SceneDelegate.swift */,
 				C01D78C328EE1BA2005009CA /* ViewController.swift */,
+				C06CFF9328EF35AD006EAD1A /* DetailVC.swift */,
 				C01D78D728EE206F005009CA /* Memory.swift */,
 				C01D78C528EE1BA2005009CA /* Main.storyboard */,
 				C01D78D528EE1E80005009CA /* MemoryCell.swift */,
@@ -149,6 +152,7 @@
 				C01D78C028EE1BA2005009CA /* AppDelegate.swift in Sources */,
 				C01D78D828EE206F005009CA /* Memory.swift in Sources */,
 				C01D78C228EE1BA2005009CA /* SceneDelegate.swift in Sources */,
+				C06CFF9428EF35AD006EAD1A /* DetailVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
